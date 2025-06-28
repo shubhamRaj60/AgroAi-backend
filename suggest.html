@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🌾 AgroAI Crop Suggestion</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Dashboard</a> |
+    <a href="chart.html">Charts</a> |
+    <a href="suggest.html">Crop Suggestion</a> |
+    <a href="feedback.html">Feedback</a>
+  </nav>
+
+  <h2>🌾 Crop Suggestion Based on Soil Data</h2>
+
+  <div class="card">
+    <label for="ph">pH Level:</label>
+    <input type="number" id="ph" step="0.1" placeholder="Enter pH">
+    <br>
+    <label for="moisture">Moisture (%):</label>
+    <input type="number" id="moistureInput" placeholder="Moisture %">
+    <br>
+    <label for="temperature">Temperature (°C):</label>
+    <input type="number" id="tempInput" placeholder="Temperature">
+    <br>
+    <button onclick="suggestCrop()">Suggest Crop</button>
+    <p><strong>🌾 Suggested Crop:</strong> <span id="suggestedCrop">--</span></p>
+  </div>
+
+  <!-- ✅ Load Firebase libraries FIRST -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+<!-- ✅ Then load Firebase config -->
+<script src="js/firebase-config.js"></script>
+
+<!-- ✅ Then your custom logic (e.g., Chart, dashboard, etc.) -->
+<script src="js/chart.js"></script>
+
+</body>
+</html>
