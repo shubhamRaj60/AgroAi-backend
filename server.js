@@ -27,6 +27,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get("/", (req, res) => {
+  res.send("✅ AgroAI Backend is running successfully!");
+});
+
+
 // ✅ Feedback API
 app.post('/api/feedback', upload.single('screenshot'), (req, res) => {
   const { name, email, subject, message, stars } = req.body;
