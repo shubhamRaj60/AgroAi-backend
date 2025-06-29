@@ -4,7 +4,7 @@
   "description": "AgroAI – Crop Prediction Backend with ML Integration",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "pip install -r requirements.txt && node server.js"
   },
   "keywords": ["agriculture", "ML", "crop prediction", "nodejs", "express"],
   "author": "Shubham Raj",
