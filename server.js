@@ -34,9 +34,13 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Feedback API
-app.post('/api/feedback', upload.single('screenshot'), (req, res) => {
+app.post('/api/feedback', upload.fields([
+  { name: 'screenshot', maxCount: 1 }
+]), (req, res) => {
   const { name, email, subject, message, stars } = req.body;
-  const screenshotPath = req.file ? `/uploads/${req.file.filename}` : null;
+  const screenshotPath = req.files?.screenshot?.[0]
+    ? `/uploads/${req.files.screenshot[0].filename}`
+    : null;
 
   const feedback = {
     name,
