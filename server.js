@@ -25,6 +25,7 @@ const upload = multer({ storage });
 // ✅ Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // ✅ for form-data
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ✅ Root route
