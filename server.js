@@ -62,9 +62,14 @@ app.post('/predict', (req, res) => {
   const args = [N, P, K, temperature, humidity, ph, rainfall];
   const modelPath = path.join(__dirname, 'model', 'predictor.py');
 
-  execFile('python', [modelPath, ...args], (error, stdout, stderr) => {
+  // ✅ Use 'python3' instead of 'python'
+  execFile('python3', [modelPath, ...args], (error, stdout, stderr) => {
     if (error) {
-      console.error('❌ ML Model Execution Error:', stderr || error.message);
+      console.error('❌ ML Model Execution Error:', {
+        error: error.message,
+        stderr,
+        stdout
+      });
       return res.status(500).json({ error: 'Prediction failed. Check logs for more info.' });
     }
 
@@ -78,3 +83,4 @@ app.post('/predict', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server is running at: http://localhost:${PORT}`);
 });
+
