@@ -1,18 +1,5 @@
 yaml
 services:
-
-type: web
-name: AgroAi
-env: node
-buildCommand: npm install
-startCommand: node server.js
-envVars:
-
-key: PYTHON_VERSION
-value: 3.11
-
-
-services:
   - type: web
     name: AgroAi
     runtime: node
